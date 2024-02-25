@@ -9,6 +9,10 @@ This project aims to deploy a simple hello-world container (**application/hello_
 
 It uses **Pulumi** for infrastructure as code and **GitHub Actions** for CI/CD.
 
+### Requirements
+- [x] Pipeline that will deploy a "hello world" web app to Kubernetes
+- [x] The CI/CD pipeline and the Kubernetes cluster are on separate systems
+- [x] The web app should be accessible remotely and only with HTTPS
 
 # How 
 

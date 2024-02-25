@@ -76,12 +76,7 @@ class MoonhubDemoStack():
             alb_security_group = aws.ec2.SecurityGroup("alb-sg",
                                                    vpc_id=self.vpc.vpc_id,
                                                    description="Allow HTTP and HTTPS traffic",
-                                                   ingress=[aws.ec2.SecurityGroupIngressArgs(
-                                                       protocol="tcp",
-                                                       from_port=80,
-                                                       to_port=80,
-                                                       cidr_blocks=["0.0.0.0/0"],
-                                                   ),
+                                                   ingress=[
                                                        aws.ec2.SecurityGroupIngressArgs(
                                                            protocol="tcp",
                                                            from_port=443,
