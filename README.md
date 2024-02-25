@@ -23,13 +23,6 @@ brew install pulumi
 pip install -r requirements.txt
 ```
 
-
-#### Generate a kubectl config:
-```bash
-pulumi stack -s dev output kubeconfig > ~/.aws/config
-kubectl get nodes
-kubectl get pods --all-namespaces
-```
 #### Deploy the infrastructure
 ```bash
 pulumi up --stack dev
@@ -38,6 +31,12 @@ This will provision an EKS cluster and a simple hello-world container onto the c
 
 The stack output 'url' will provide the URL to access the hello-world container service.
 
+#### Generate a kubectl config:
+```bash
+pulumi stack -s dev output kubeconfig > ~/.aws/config
+kubectl get nodes
+kubectl get pods --all-namespaces
+```
 
 #### Open the URL in the browser: 
 (Please accept the self-signed certificate when prompted)
