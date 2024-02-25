@@ -28,7 +28,6 @@ class MoonhubDemoStack():
         pulumi.export("kubeconfig", self.eks_cluster.kubeconfig)
         self.eks_provider = kubernetes.Provider("eksProvider", kubeconfig=self.eks_cluster.kubeconfig)
 
-
         system_instance_profile, worker_instance_profile = setup_instance_profiles()
 
         system_node_group, workload_node_group = setup_node_groups(self.eks_cluster,
@@ -74,23 +73,6 @@ class MoonhubDemoStack():
                                                           ), opts=pulumi.ResourceOptions(depends_on=[self.eks_cluster],
                                                                                          provider=self.eks_provider))
 
-            alb_security_group = aws.ec2.SecurityGroup("alb-sg",
-                                                   vpc_id=self.vpc.vpc_id,
-                                                   description="Allow HTTP and HTTPS traffic",
-                                                   ingress=[
-                                                       aws.ec2.SecurityGroupIngressArgs(
-                                                           protocol="tcp",
-                                                           from_port=443,
-                                                           to_port=443,
-                                                           cidr_blocks=["0.0.0.0/0"],
-                                                       )],
-                                                   egress=[aws.ec2.SecurityGroupEgressArgs(
-                                                       protocol="-1",
-                                                       from_port=0,
-                                                       to_port=0,
-                                                       cidr_blocks=["0.0.0.0/0"],
-                                                   )],
-                                                   opts=pulumi.ResourceOptions(depends_on=[self.vpc]))
 
     def setup_service(self):
         my_service = kubernetes.core.v1.Service("hello-world-service",
