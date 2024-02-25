@@ -28,7 +28,6 @@ class MoonhubDemoStack():
         pulumi.export("kubeconfig", self.eks_cluster.kubeconfig)
         self.eks_provider = kubernetes.Provider("eksProvider", kubeconfig=self.eks_cluster.kubeconfig)
 
-
         system_instance_profile, worker_instance_profile = setup_instance_profiles()
 
         system_node_group, workload_node_group = setup_node_groups(self.eks_cluster,
