@@ -1,0 +1,8 @@
+config:
+  aws:region: us-west-2
+  aws:profile: default
+  mh:eks_version: 1.29
+  mh:eks_desired_capacity: 2
+  mh:eks_min_size: 2
+  mh:eks_max_size: 2
+  mh:eks_instance_type: "t2.medium"
