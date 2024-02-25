@@ -37,6 +37,7 @@ class MoonhubDemoStack():
         # Move this to a separate repo, together with the app
         self.deployment = self.setup_deployment()
         self.service = self.setup_service()
+
     def setup_deployment(self):
 
             my_deployment = kubernetes.apps.v1.Deployment("my-deployment",
