@@ -59,7 +59,7 @@ When a PR is **created**, the **preview** workflow is run.
 
 When a PR is **merged**, the **deploy** workflow is run.
 
-Pipeline in action: https://github.com/davidx/mh-project/actions
+Pipeline in action: https://github.com/davidx/hello-world-eks/actions
 
 ### Future work :
 
