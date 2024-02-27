@@ -33,7 +33,7 @@ The stack output 'url' will provide the URL to access the hello-world container 
 
 #### Generate a kubectl config:
 ```bash
-pulumi stack -s dev output kubeconfig > ~/.aws/config
+pulumi stack -s dev output kubeconfig > ~/.kube/config
 kubectl get nodes
 kubectl get pods --all-namespaces
 ```
